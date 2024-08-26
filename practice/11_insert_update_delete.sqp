@@ -1,0 +1,34 @@
+--INSERT
+
+-- 해당 테이블 구조 확인
+DESC departments;
+
+--INSERT의 첫번째 방법 (모든 컬럼 데이터를 한번에 지정해서 삽입)
+INSERT INTO departments
+VALUES(300,'개발부'); //VALUES 는 무조건 값을 다 넣어줘야함.
+
+
+-- 2번째 방법
+INSERT INTO departments
+    (department_name,department_id, location_id)
+VALUES
+    ('사업부',301,1500);
+
+rollback;
+    
+-- 사본 테이블 생성
+-- 사본 테이블을 생성할 때 그냥 생성하면 -> 조회된 데이터까지 모두 복사
+-- WHERE절에 false값(1 = 2) 지정하면 -> 테이블의 구조만 복사되고 데이터는 복사 x
+-- CTAS문은 컬럼의 구조와 데이터를 복사할 뿐, 제약조건(PK, FK...)은 복제되지 않습니다.
+
+
+
+
+
+
+
+
+
+
+
+

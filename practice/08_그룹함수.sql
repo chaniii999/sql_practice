@@ -33,3 +33,30 @@ WHERE department_id > 50
 GROUP BY department_id
 HAVING AVG(salary) >= 5000
 ORDER BY 평균급여 DESC;
+
+
+
+
+SELECT
+    job_id,
+    COUNT(*) AS 사원수,
+    AVG(salary) AS 평균월급
+FROM employees
+GROUP BY job_id
+ORDER BY 평균월급 DESC;
+
+SELECT
+    TO_CHAR(hire_date, 'yy') AS 입사년도,
+    COUNT(*) AS 사원수
+FROM employees
+GROUP BY TO_CHAR(hire_date, 'yy')
+ORDER BY 입사년도;
+
+SELECT
+    department_id,
+    TRUNC(AVG(salary + salary*commission_pct)) AS avg_salary,
+    SUM(salary + salary*commission_pct) AS total,
+    COUNT(*) AS COUNT
+FROM employees
+WHERE commission_pct IS NOT NULL
+GROUP BY department_id;
