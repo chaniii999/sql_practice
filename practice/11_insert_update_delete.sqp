@@ -22,10 +22,20 @@ rollback;
 -- CTAS문은 컬럼의 구조와 데이터를 복사할 뿐, 제약조건(PK, FK...)은 복제되지 않습니다.
 
 
+-- 테이블 사본 생성하기
+CREATE TABLE emps AS
+(SELECT * FROM employees);
+select * from emps;
+drop table emps;
+desc emps;
 
+--UPDATE 테이블 SET 컬럼 = 값 , 컬럼 = 값... WHERE 조건문
+-- 조건을 잘 지정해야함. (지정안하면 테이블 전체 수정됨)
 
-
-
+UPDATE emps
+SET salary = 30000;
+SELECT
+    * FROM emps;
 
 
 
