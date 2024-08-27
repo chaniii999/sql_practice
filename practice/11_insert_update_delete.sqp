@@ -36,6 +36,11 @@ UPDATE emps
 SET salary = 30000;
 SELECT
     * FROM emps;
+    
+--delete / 조건지정하지않으면 테이블 전체 삭제
+-- 컬럼 명시 x (행을 지우기 때문)
+DELETE FROM emps
+WHERE employee_id = 103;
 
 
 
